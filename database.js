@@ -26,20 +26,21 @@ class Database {
   }
 }
 //create and save record Model
-// let rabeb = new Person({
-//   name: "rabeb",
-//   age: 27,
-//   favoriteFoods: ["burrito", "apple pie", "guac"],
-// });
-// rabeb.save((err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     // console.log(data);
-//   }
-// });
+let rabeb = new Person({
+  name: "rabeb",
+  age: 27,
+  favoriteFoods: ["burrito", "apple pie", "guac"],
+});
+rabeb.save((err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    // console.log(data);
+  }
+});
 
 //create many records
+//the argument to be passed in the model.create
 let arrayOfPeople = [
   {
     name: "Anja",
@@ -74,31 +75,33 @@ let arrayOfPeople = [
 //     favoriteFoods: ["pizza", "coffee", "steak"],
 //   },
 // ];
-// Person.create(arrayOfPeople, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-// });
+
+//model.create
+Person.create(arrayOfPeople, (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
 
 //find by name
-// Person.find({ name: "rabeb" }, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-// });
+Person.find({ name: "rabeb" }, (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
 
 //findOne by favoriteFoods
-// Person.findOne({ favoriteFoods: { $all: ["burrito"] } }, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-// });
+Person.findOne({ favoriteFoods: { $all: ["burrito"] } }, (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
 
 //another method for returning just one
 // Person.find({ favoriteFoods: { $all: ["prawns"] } }, (err, data) => {
@@ -110,50 +113,46 @@ let arrayOfPeople = [
 // });
 
 //find by id
-// Person.findById("615054efeb480d402e34f365", (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data[0]);
-//   }
-// });
+Person.findById("615054efeb480d402e34f365", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data[0]);
+  }
+});
 
 //Perform classic updates runing find edit and save
-// Person.findById("615054efeb480d402e34f365", (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     data.age = 24;
-//     data.favoriteFoods.push("japanese delecacies");
-//     console.log(data);
-//   }
-// });
+Person.findById("615054efeb480d402e34f365", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    data.age = 24;
+    data.favoriteFoods.push("japanese delecacies");
+    console.log(data);
+  }
+});
 
 //findOneandUpdate
-// Person.findOneAndUpdate(
-//   { name: "Raja" },
-//   { age: 20 },
-//   { new: true },
-//   (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(data);
-//     }
-//   }
-// );
+Person.findOneAndUpdate(
+  { name: "Raja" },
+  { age: 20 },
+  { new: true },
+  (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  }
+);
 
 //delete many
-// Person.remove({ name: "Poppy" }, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   }
-// });
-// Person.remove({ name: "Poppy" }, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   }
-// });
+Person.remove({ name: "Poppy" }, (err, data) => {
+  if (err) {
+    console.log(err);
+  }
+});
+
 // Person.findOneAndRemove({ name: "Taher" }, (err, data) => {
 //   if (err) {
 //     console.log(err);
